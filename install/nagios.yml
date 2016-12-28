@@ -17,10 +17,12 @@
 - hosts: all:!switches:!oobservers:!nagios:!idrac
   remote_user: root
   roles:
+    - { role: selinux }
     - { role: nagios-client }
 
 # role for nagios server
 - hosts: nagios
   remote_user: root
   roles:
+    - { role: selinux }
     - { role: nagios }

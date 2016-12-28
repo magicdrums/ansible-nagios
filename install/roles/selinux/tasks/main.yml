@@ -1,0 +1,21 @@
+- name: Install policycoreutils-python
+  yum: name=policycoreutils-python state=installed
+
+- name: Remove SELinux policy package
+  command: semodule -r nagios
+  failed_when: false
+
+- name: Copy SELinux type enforcement file
+  copy: src=nagios.te dest=/tmp/
+
+- name: Compile SELinux module file
+  command: checkmodule -M -m -o /tmp/nagios.mod /tmp/nagios.te
+
+- name: Build SELinux policy package
+  command: semodule_package -o /tmp/nagios.pp -m /tmp/nagios.mod
+
+- name: Load SELinux policy package
+  command: semodule -i /tmp/nagios.pp
+
+- name: Remove temporary files
+  file: path=/tmp/nagios.* state=absent

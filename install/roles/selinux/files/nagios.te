@@ -1,0 +1,21 @@
+module nagios 1.0;
+
+require {
+	type unconfined_t;
+	type var_log_t;
+	type httpd_t;
+	type init_t;
+	class file { open read };
+	class service disable;
+}
+
+#============= httpd_t ==============
+allow httpd_t var_log_t:file open;
+
+#!!!! This avc is allowed in the current policy
+allow httpd_t var_log_t:file read;
+
+#============= unconfined_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow unconfined_t init_t:service disable;
