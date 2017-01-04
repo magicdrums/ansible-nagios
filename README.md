@@ -105,37 +105,49 @@ systemctl restart httpd
 ```
 .
 ├── hosts
-└── install
-    ├── group_vars
-    │   └── all.yml
-    ├── nagios.yml
-    └── roles
-        ├── nagios
-        │   ├── files
-        │   │   ├── idrac_2.2rc4
-        │   │   ├── idrac-smiv2.mib
-        │   │   ├── localhost.cfg
-        │   │   ├── nagios.cfg
-        │   │   ├── nagios.conf
-        │   │   └── services.cfg
-        │   ├── tasks
-        │   │   └── main.yml
-        │   └── templates
-        │       ├── cgi.cfg.j2
-        │       ├── commands.cfg.j2
-        │       ├── contacts.cfg.j2
-        │       ├── elasticsearch.cfg.j2
-        │       ├── elkservers.cfg.j2
-        │       ├── idrac.cfg.j2
-        │       ├── oobservers.cfg.j2
-        │       ├── servers.cfg.j2
-        │       ├── switches.cfg.j2
-        │       └── webservers.cfg.j2
-        └── nagios-client
-            ├── tasks
-            │   └── main.yml
-            └── templates
-                └── nrpe.cfg.j2
+├── image
+│   ├── ansible-nagios.png
+│   ├── idrac-check.jpg
+│   └── nagios-idrac.png
+├── install
+│   ├── group_vars
+│   │   └── all.yml
+│   ├── nagios.retry
+│   ├── nagios.yml
+│   └── roles
+│       ├── nagios
+│       │   ├── files
+│       │   │   ├── idrac_2.2rc4
+│       │   │   ├── idrac-smiv2.mib
+│       │   │   ├── localhost.cfg
+│       │   │   ├── nagios.cfg
+│       │   │   ├── nagios.conf
+│       │   │   └── services.cfg
+│       │   ├── tasks
+│       │   │   └── main.yml
+│       │   └── templates
+│       │       ├── cgi.cfg.j2
+│       │       ├── commands.cfg.j2
+│       │       ├── contacts.cfg.j2
+│       │       ├── elasticsearch.cfg.j2
+│       │       ├── elkservers.cfg.j2
+│       │       ├── idrac.cfg.j2
+│       │       ├── oobservers.cfg.j2
+│       │       ├── servers.cfg.j2
+│       │       ├── switches.cfg.j2
+│       │       └── webservers.cfg.j2
+│       ├── nagios-client
+│       │   ├── tasks
+│       │   │   └── main.yml
+│       │   └── templates
+│       │       └── nrpe.cfg.j2
+│       └── selinux
+│           ├── files
+│           │   └── nagios.te
+│           └── tasks
+│               └── main.yml
+├── LICENSE
+└── README.md
 
-10 directories, 22 files
+14 directories, 30 files
 ```
