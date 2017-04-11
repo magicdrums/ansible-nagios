@@ -1,9 +1,6 @@
 [nagios]
 localhost
 
-[nagios:vars]
-ansible_port=2222
-
 [servers]
 
 [webservers]
